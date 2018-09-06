@@ -1,0 +1,198 @@
+# FIO configure log 2018. 07. 20. (금) 16:50:14 KST
+# Configured with: './configure'
+#
+gcc -D_GNU_SOURCE -include config-host.h -c -o /tmp/fio-conf--3719-.o /tmp/fio-conf--3719-.c
+/tmp/fio-conf--3719-.c:2:2: error: #error __ANDROID__ not defined
+ #error __ANDROID__ not defined
+  ^
+gcc -D_GNU_SOURCE -include config-host.h -c -o /tmp/fio-conf--3719-.o /tmp/fio-conf--3719-.c
+gcc -D_GNU_SOURCE -include config-host.h -c -o /tmp/fio-conf--3719-.o /tmp/fio-conf--3719-.c
+/tmp/fio-conf--3719-.c:2:2: error: #error __i386__ not defined
+ #error __i386__ not defined
+  ^
+gcc -D_GNU_SOURCE -include config-host.h -c -o /tmp/fio-conf--3719-.o /tmp/fio-conf--3719-.c
+Compiling test case cross
+gcc -D_GNU_SOURCE -include config-host.h -o /tmp/fio-conf--3719-.exe /tmp/fio-conf--3719-.c
+Compiling test case endian
+gcc -D_GNU_SOURCE -include config-host.h -o /tmp/fio-conf--3719-.exe /tmp/fio-conf--3719-.c
+Compiling test case wordsize
+gcc -D_GNU_SOURCE -include config-host.h -DWORDSIZE=32 -o /tmp/fio-conf--3719-.exe /tmp/fio-conf--3719-.c
+/tmp/fio-conf--3719-.c: In function ‘main’:
+/tmp/fio-conf--3719-.c:5:3: error: size of unnamed array is negative
+   BUILD_BUG_ON(sizeof(long)*CHAR_BIT != WORDSIZE);
+   ^
+Compiling test case wordsize
+gcc -D_GNU_SOURCE -include config-host.h -DWORDSIZE=64 -o /tmp/fio-conf--3719-.exe /tmp/fio-conf--3719-.c
+Compiling test case zlib
+gcc -D_GNU_SOURCE -include config-host.h -o /tmp/fio-conf--3719-.exe /tmp/fio-conf--3719-.c -lz
+Compiling test case libaio
+gcc -D_GNU_SOURCE -include config-host.h -o /tmp/fio-conf--3719-.exe /tmp/fio-conf--3719-.c -laio -lz
+Compiling test case posixaio
+gcc -D_GNU_SOURCE -include config-host.h -o /tmp/fio-conf--3719-.exe /tmp/fio-conf--3719-.c -laio -lz
+/tmp/cc6Ei4HD.o: In function `main':
+fio-conf--3719-.c:(.text+0x25): undefined reference to `aio_read'
+collect2: error: ld returned 1 exit status
+Compiling test case posixaio
+gcc -D_GNU_SOURCE -include config-host.h -o /tmp/fio-conf--3719-.exe /tmp/fio-conf--3719-.c -lrt -laio -lz
+Compiling test case posix_aio_fsync
+gcc -D_GNU_SOURCE -include config-host.h -o /tmp/fio-conf--3719-.exe /tmp/fio-conf--3719-.c -lrt -laio -lz -lrt -laio -lz
+Compiling test case solarisaio
+gcc -D_GNU_SOURCE -include config-host.h -o /tmp/fio-conf--3719-.exe /tmp/fio-conf--3719-.c -laio -lrt -laio -lz
+/tmp/fio-conf--3719-.c:2:24: fatal error: sys/asynch.h: No such file or directory
+compilation terminated.
+Compiling test case __sync_fetch_and_add()
+gcc -D_GNU_SOURCE -include config-host.h -o /tmp/fio-conf--3719-.exe /tmp/fio-conf--3719-.c -lrt -laio -lz
+Compiling test case libverbs
+gcc -D_GNU_SOURCE -include config-host.h -o /tmp/fio-conf--3719-.exe /tmp/fio-conf--3719-.c -libverbs -lrt -laio -lz
+/tmp/fio-conf--3719-.c: In function ‘main’:
+/tmp/fio-conf--3719-.c:5:23: warning: implicit declaration of function ‘ibv_alloc_pd’ [-Wimplicit-function-declaration]
+   struct ibv_pd *pd = ibv_alloc_pd(NULL);
+                       ^
+/tmp/fio-conf--3719-.c:5:23: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+Compiling test case rdma
+gcc -D_GNU_SOURCE -include config-host.h -o /tmp/fio-conf--3719-.exe /tmp/fio-conf--3719-.c -lrdmacm -libverbs -lrt -laio -lz
+Compiling test case linux_fallocate
+gcc -D_GNU_SOURCE -include config-host.h -o /tmp/fio-conf--3719-.exe /tmp/fio-conf--3719-.c -lrdmacm -libverbs -lrt -laio -lz
+Compiling test case posix_fadvise
+gcc -D_GNU_SOURCE -include config-host.h -o /tmp/fio-conf--3719-.exe /tmp/fio-conf--3719-.c -lrdmacm -libverbs -lrt -laio -lz
+Compiling test case posix_fallocate
+gcc -D_GNU_SOURCE -include config-host.h -o /tmp/fio-conf--3719-.exe /tmp/fio-conf--3719-.c -lrdmacm -libverbs -lrt -laio -lz
+Compiling test case sched_setaffinity(,,)
+gcc -D_GNU_SOURCE -include config-host.h -o /tmp/fio-conf--3719-.exe /tmp/fio-conf--3719-.c -lrdmacm -libverbs -lrt -laio -lz
+Compiling test case clock_gettime
+gcc -D_GNU_SOURCE -include config-host.h -o /tmp/fio-conf--3719-.exe /tmp/fio-conf--3719-.c -lrdmacm -libverbs -lrt -laio -lz
+Compiling test case clock monotonic
+gcc -D_GNU_SOURCE -include config-host.h -o /tmp/fio-conf--3719-.exe /tmp/fio-conf--3719-.c -lrdmacm -libverbs -lrt -laio -lz -lrdmacm -libverbs -lrt -laio -lz
+Compiling test case clock monotonic
+gcc -D_GNU_SOURCE -include config-host.h -o /tmp/fio-conf--3719-.exe /tmp/fio-conf--3719-.c -lrdmacm -libverbs -lrt -laio -lz -lrdmacm -libverbs -lrt -laio -lz
+Compiling test case clock monotonic precise
+gcc -D_GNU_SOURCE -include config-host.h -o /tmp/fio-conf--3719-.exe /tmp/fio-conf--3719-.c -lrdmacm -libverbs -lrt -laio -lz -lrdmacm -libverbs -lrt -laio -lz
+/tmp/fio-conf--3719-.c: In function ‘main’:
+/tmp/fio-conf--3719-.c:5:24: error: ‘CLOCK_MONOTONIC_PRECISE’ undeclared (first use in this function)
+   return clock_gettime(CLOCK_MONOTONIC_PRECISE, NULL);
+                        ^
+/tmp/fio-conf--3719-.c:5:24: note: each undeclared identifier is reported only once for each function it appears in
+Compiling test case gettimeofday
+gcc -D_GNU_SOURCE -include config-host.h -o /tmp/fio-conf--3719-.exe /tmp/fio-conf--3719-.c -lrdmacm -libverbs -lrt -laio -lz
+Compiling test case fdatasync
+gcc -D_GNU_SOURCE -include config-host.h -o /tmp/fio-conf--3719-.exe /tmp/fio-conf--3719-.c -lrdmacm -libverbs -lrt -laio -lz
+Compiling test case sync_file_range
+gcc -D_GNU_SOURCE -include config-host.h -o /tmp/fio-conf--3719-.exe /tmp/fio-conf--3719-.c -lrdmacm -libverbs -lrt -laio -lz
+Compiling test case ext4 move extent
+gcc -D_GNU_SOURCE -include config-host.h -o /tmp/fio-conf--3719-.exe /tmp/fio-conf--3719-.c -lrdmacm -libverbs -lrt -laio -lz
+/tmp/fio-conf--3719-.c: In function ‘main’:
+/tmp/fio-conf--3719-.c:5:22: error: storage size of ‘me’ isn’t known
+   struct move_extent me;
+                      ^
+/tmp/fio-conf--3719-.c:6:19: error: ‘EXT4_IOC_MOVE_EXT’ undeclared (first use in this function)
+   return ioctl(0, EXT4_IOC_MOVE_EXT, &me);
+                   ^
+/tmp/fio-conf--3719-.c:6:19: note: each undeclared identifier is reported only once for each function it appears in
+Compiling test case linux splice
+gcc -D_GNU_SOURCE -include config-host.h -o /tmp/fio-conf--3719-.exe /tmp/fio-conf--3719-.c -lrdmacm -libverbs -lrt -laio -lz
+Compiling test case guasi
+gcc -D_GNU_SOURCE -include config-host.h -o /tmp/fio-conf--3719-.exe /tmp/fio-conf--3719-.c -lrdmacm -libverbs -lrt -laio -lz
+/tmp/fio-conf--3719-.c:1:19: fatal error: guasi.h: No such file or directory
+compilation terminated.
+Compiling test case fusion-aw
+gcc -D_GNU_SOURCE -include config-host.h -o /tmp/fio-conf--3719-.exe /tmp/fio-conf--3719-.c -L/usr/lib/fio -L/usr/lib/nvm -lnvm-primitives -ldl -lpthread -lrdmacm -libverbs -lrt -laio -lz
+/tmp/fio-conf--3719-.c:1:32: fatal error: nvm/nvm_primitives.h: No such file or directory
+compilation terminated.
+Compiling test case libnuma
+gcc -D_GNU_SOURCE -include config-host.h -o /tmp/fio-conf--3719-.exe /tmp/fio-conf--3719-.c -lnuma -lrdmacm -libverbs -lrt -laio -lz
+Compiling test case libnuma api
+gcc -D_GNU_SOURCE -include config-host.h -o /tmp/fio-conf--3719-.exe /tmp/fio-conf--3719-.c -lnuma -lrdmacm -libverbs -lrt -laio -lz
+Compiling test case strsep
+gcc -D_GNU_SOURCE -include config-host.h -o /tmp/fio-conf--3719-.exe /tmp/fio-conf--3719-.c -lnuma -lrdmacm -libverbs -lrt -laio -lz
+Compiling test case strcasestr
+gcc -D_GNU_SOURCE -include config-host.h -o /tmp/fio-conf--3719-.exe /tmp/fio-conf--3719-.c -lnuma -lrdmacm -libverbs -lrt -laio -lz
+Compiling test case strlcat
+gcc -D_GNU_SOURCE -include config-host.h -o /tmp/fio-conf--3719-.exe /tmp/fio-conf--3719-.c -lnuma -lrdmacm -libverbs -lrt -laio -lz
+/tmp/fio-conf--3719-.c: In function ‘main’:
+/tmp/fio-conf--3719-.c:7:3: warning: implicit declaration of function ‘strlcat’ [-Wimplicit-function-declaration]
+   strlcat(dst, string, sizeof(dst));
+   ^
+/tmp/ccIDRoCh.o: In function `main':
+fio-conf--3719-.c:(.text+0x3d): undefined reference to `strlcat'
+collect2: error: ld returned 1 exit status
+Compiling test case getopt_long_only
+gcc -D_GNU_SOURCE -include config-host.h -o /tmp/fio-conf--3719-.exe /tmp/fio-conf--3719-.c -lnuma -lrdmacm -libverbs -lrt -laio -lz
+Compiling test case inet_aton
+gcc -D_GNU_SOURCE -include config-host.h -o /tmp/fio-conf--3719-.exe /tmp/fio-conf--3719-.c -lnuma -lrdmacm -libverbs -lrt -laio -lz
+Compiling test case socklen_t
+gcc -D_GNU_SOURCE -include config-host.h -o /tmp/fio-conf--3719-.exe /tmp/fio-conf--3719-.c -lnuma -lrdmacm -libverbs -lrt -laio -lz
+Compiling test case __thread
+gcc -D_GNU_SOURCE -include config-host.h -o /tmp/fio-conf--3719-.exe /tmp/fio-conf--3719-.c -lnuma -lrdmacm -libverbs -lrt -laio -lz
+Compiling test case RUSAGE_THREAD
+gcc -D_GNU_SOURCE -include config-host.h -o /tmp/fio-conf--3719-.exe /tmp/fio-conf--3719-.c -lnuma -lrdmacm -libverbs -lrt -laio -lz
+Compiling test case SCHED_IDLE
+gcc -D_GNU_SOURCE -include config-host.h -o /tmp/fio-conf--3719-.exe /tmp/fio-conf--3719-.c -lnuma -lrdmacm -libverbs -lrt -laio -lz
+Compiling test case TCP_NODELAY
+gcc -D_GNU_SOURCE -include config-host.h -o /tmp/fio-conf--3719-.exe /tmp/fio-conf--3719-.c -lnuma -lrdmacm -libverbs -lrt -laio -lz
+Compiling test case SO_SNDBUF
+gcc -D_GNU_SOURCE -include config-host.h -o /tmp/fio-conf--3719-.exe /tmp/fio-conf--3719-.c -lnuma -lrdmacm -libverbs -lrt -laio -lz
+Compiling test case TCP_MAXSEG
+gcc -D_GNU_SOURCE -include config-host.h -o /tmp/fio-conf--3719-.exe /tmp/fio-conf--3719-.c -lnuma -lrdmacm -libverbs -lrt -laio -lz
+Compiling test case RLIMIT_MEMLOCK
+gcc -D_GNU_SOURCE -include config-host.h -o /tmp/fio-conf--3719-.exe /tmp/fio-conf--3719-.c -lnuma -lrdmacm -libverbs -lrt -laio -lz
+Compiling test case pwritev
+gcc -D_GNU_SOURCE -include config-host.h -o /tmp/fio-conf--3719-.exe /tmp/fio-conf--3719-.c -lnuma -lrdmacm -libverbs -lrt -laio -lz
+Compiling test case pwritev2
+gcc -D_GNU_SOURCE -include config-host.h -o /tmp/fio-conf--3719-.exe /tmp/fio-conf--3719-.c -lnuma -lrdmacm -libverbs -lrt -laio -lz
+/tmp/fio-conf--3719-.c: In function ‘main’:
+/tmp/fio-conf--3719-.c:5:10: warning: implicit declaration of function ‘pwritev2’ [-Wimplicit-function-declaration]
+   return pwritev2(0, NULL, 1, 0, 0) + preadv2(0, NULL, 1, 0, 0);
+          ^
+/tmp/fio-conf--3719-.c:5:39: warning: implicit declaration of function ‘preadv2’ [-Wimplicit-function-declaration]
+   return pwritev2(0, NULL, 1, 0, 0) + preadv2(0, NULL, 1, 0, 0);
+                                       ^
+/tmp/ccyAwVwB.o: In function `main':
+fio-conf--3719-.c:(.text+0x30): undefined reference to `pwritev2'
+fio-conf--3719-.c:(.text+0x56): undefined reference to `preadv2'
+collect2: error: ld returned 1 exit status
+Compiling test case ipv6
+gcc -D_GNU_SOURCE -include config-host.h -o /tmp/fio-conf--3719-.exe /tmp/fio-conf--3719-.c -lnuma -lrdmacm -libverbs -lrt -laio -lz
+Compiling test case rbd
+gcc -D_GNU_SOURCE -include config-host.h -o /tmp/fio-conf--3719-.exe /tmp/fio-conf--3719-.c -lrbd -lrados -lnuma -lrdmacm -libverbs -lrt -laio -lz
+Compiling test case rbd
+gcc -D_GNU_SOURCE -include config-host.h -o /tmp/fio-conf--3719-.exe /tmp/fio-conf--3719-.c -lrbd -lrados -lrbd -lrados -lnuma -lrdmacm -libverbs -lrt -laio -lz
+Compiling test case rbd_blkin
+gcc -D_GNU_SOURCE -include config-host.h -o /tmp/fio-conf--3719-.exe /tmp/fio-conf--3719-.c -lrbd -lrados -lblkin -lrbd -lrados -lnuma -lrdmacm -libverbs -lrt -laio -lz
+/tmp/fio-conf--3719-.c:2:22: fatal error: zipkin_c.h: No such file or directory
+compilation terminated.
+Compiling test case setvbuf
+gcc -D_GNU_SOURCE -include config-host.h -o /tmp/fio-conf--3719-.exe /tmp/fio-conf--3719-.c -lrbd -lrados -lnuma -lrdmacm -libverbs -lrt -laio -lz
+Compiling test case gfapi
+gcc -D_GNU_SOURCE -include config-host.h -o /tmp/fio-conf--3719-.exe /tmp/fio-conf--3719-.c -lgfapi -lglusterfs -lrbd -lrados -lnuma -lrdmacm -libverbs -lrt -laio -lz
+/tmp/fio-conf--3719-.c:1:32: fatal error: glusterfs/api/glfs.h: No such file or directory
+compilation terminated.
+Compiling test case s390_z196_facilities
+gcc -D_GNU_SOURCE -include config-host.h -o /tmp/fio-conf--3719-.exe /tmp/fio-conf--3719-.c -lrbd -lrados -lnuma -lrdmacm -libverbs -lrt -laio -lz
+/tmp/fio-conf--3719-.c: Assembler messages:
+/tmp/fio-conf--3719-.c:7: Error: unknown pseudo-op: `.machine'
+/tmp/fio-conf--3719-.c:8: Error: unknown pseudo-op: `.machine'
+/tmp/fio-conf--3719-.c:9: Error: no such instruction: `stfle %rcx'
+/tmp/fio-conf--3719-.c:10: Error: unknown pseudo-op: `.machine'
+Compiling test case mtd
+gcc -D_GNU_SOURCE -include config-host.h -o /tmp/fio-conf--3719-.exe /tmp/fio-conf--3719-.c -lrbd -lrados -lnuma -lrdmacm -libverbs -lrt -laio -lz
+Compiling test case lex
+gcc -D_GNU_SOURCE -include config-host.h -o /tmp/fio-conf--3719-.exe /tmp/fio-conf--3719-.c -ll -lrbd -lrados -lnuma -lrdmacm -libverbs -lrt -laio -lz
+Compiling test case getmntent
+gcc -D_GNU_SOURCE -include config-host.h -o /tmp/fio-conf--3719-.exe /tmp/fio-conf--3719-.c -ll -lrbd -lrados -lnuma -lrdmacm -libverbs -lrt -laio -lz
+Compiling test case getmntinfo
+gcc -D_GNU_SOURCE -include config-host.h -o /tmp/fio-conf--3719-.exe /tmp/fio-conf--3719-.c -ll -lrbd -lrados -lnuma -lrdmacm -libverbs -lrt -laio -lz
+/tmp/fio-conf--3719-.c: In function ‘main’:
+/tmp/fio-conf--3719-.c:6:17: error: storage size of ‘st’ isn’t known
+   struct statfs st;
+                 ^
+/tmp/fio-conf--3719-.c:7:10: warning: implicit declaration of function ‘getmntinfo’ [-Wimplicit-function-declaration]
+   return getmntinfo(&st, MNT_NOWAIT);
+          ^
+/tmp/fio-conf--3719-.c:7:26: error: ‘MNT_NOWAIT’ undeclared (first use in this function)
+   return getmntinfo(&st, MNT_NOWAIT);
+                          ^
+/tmp/fio-conf--3719-.c:7:26: note: each undeclared identifier is reported only once for each function it appears in
+Compiling test case static_assert
+gcc -D_GNU_SOURCE -include config-host.h -o /tmp/fio-conf--3719-.exe /tmp/fio-conf--3719-.c -ll -lrbd -lrados -lnuma -lrdmacm -libverbs -lrt -laio -lz
+Compiling test case bool
+gcc -D_GNU_SOURCE -include config-host.h -o /tmp/fio-conf--3719-.exe /tmp/fio-conf--3719-.c -ll -lrbd -lrados -lnuma -lrdmacm -libverbs -lrt -laio -lz
