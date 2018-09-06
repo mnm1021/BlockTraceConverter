@@ -1,7 +1,7 @@
-all: converter
+all: spliter
 
-converter: converter.c
-	gcc -o converter converter.c
+spliter: spliter.c
+	gcc -o spliter spliter.c
 
 clean:
-	rm converter
+	rm spliter

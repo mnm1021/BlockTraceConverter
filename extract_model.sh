@@ -27,8 +27,8 @@ do
 	# size should be replaced into responsible amount when extracting real model for conversion.
 	../fio/fio --name=test --size=512M --rw=rw --direct=1 ${bs_option[$i_bs]} ${ratios_option[$i_ratio]} --latency-log ../data.txt
 
-	# 2. separate read and write data by converter
-	../converter ../data.txt ../read_${bs[$i_bs]}_${ratios[$i_ratio]}.txt ../write_${bs[$i_bs]}_${ratios[$i_ratio]}.txt
+	# 2. split read and write data by spliter
+	../spliter ../data.txt ../read_${bs[$i_bs]}_${ratios[$i_ratio]}.txt ../write_${bs[$i_bs]}_${ratios[$i_ratio]}.txt
 	rm ../data.txt
 
 	# 3. get model from given status
