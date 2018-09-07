@@ -25,7 +25,7 @@ do
 
 	# 1. get latency data by fio
 	# size should be replaced into responsible amount when extracting real model for conversion.
-	../fio/fio --name=test --size=512M --rw=rw --direct=1 ${bs_option[$i_bs]} ${ratios_option[$i_ratio]} --latency-log ../data.txt
+	../fio/fio --name=test --size=50G --rw=rw --direct=1 ${bs_option[$i_bs]} ${ratios_option[$i_ratio]} --latency-log ../data.txt
 
 	# 2. split read and write data by spliter
 	../spliter ../data.txt ../read_${bs[$i_bs]}_${ratios[$i_ratio]}.txt ../write_${bs[$i_bs]}_${ratios[$i_ratio]}.txt
@@ -37,7 +37,7 @@ do
 		# R script: CLI R ignores other lines if line is separated... hard to read, but no other ways.
 		# this extracts model from given latency data, and stores model's data into ../models.txt.
 		R -e "
-			library(\"mixtools\"); x<-scan(\"../read_${bs[$i_bs]}_${ratios[$i_ratio]}.txt\"); y<-tryCatch({normalmixEM(x,k=6,maxit=1500)},error=function(cond){return(tryCatch({normalMixEM(x,k=5,maxit=1500)},error=function(cond){return(tryCatch({normalMixEM(x,k=4,maxit=1500)},error=function(cond){return(tryCatch({normalMixEM(x,k=3,maxit=1500)},error=function(cond){return(tryCatch({normalMixEM(x,k=2,maxit=1500)},error=function(cond){return(tryCatch({normalMixEM(x,k=1,maxit=1500)},error=function(cond){return(print(\"no match for normalMixEM!\"))}))}))}))}))}))}); write(\"read ${bs[$i_bs]} ${ratios[$i_ratio]}\", file=\"../models.txt\", ncolumns=10, append=TRUE); write(y\$lambda, file=\"../models.txt\", ncolumns=10, append=TRUE, sep=\",\"); write(y\$mu, file=\"../models.txt\", ncolumns=10, append=TRUE, sep=\",\"); write(y\$sigma, file=\"../models.txt\", ncolumns=10, append=TRUE, sep=\",\");
+			library(\"mixtools\"); x<-scan(\"../read_${bs[$i_bs]}_${ratios[$i_ratio]}.txt\"); y<-tryCatch({normalmixEM(x,k=7,maxit=6000)},error=function(cond){print(\"no match for K=7, trying K=6\");return(tryCatch({normalmixEM(x,k=6,maxit=6000)},error=function(cond){print(\"no match for K=6, trying K=5\");return(tryCatch({normalmixEM(x,k=5,maxit=6000)},error=function(cond){print(\"no match for K=5, trying K=4\");return(tryCatch({normalmixEM(x,k=4,maxit=6000)},error=function(cond){print(\"no match for K=4, trying K=3\");return(tryCatch({normalmixEM(x,k=3,maxit=6000)},error=function(cond){print(\"no match for K=3, trying K=2\");return(tryCatch({normalmixEM(x,k=2,maxit=6000)},error=function(cond){print(\"no match for K=2, trying K=1\");return(tryCatch({normalmixEM(x,k=1,maxit=6000)},error=function(cond){print(\"no match for normalmixEM\")}))}))}))}))}))}))}); write(\"read ${ratios[$i_ratio]} ${bs[$i_bs]}\", file=\"../models.txt\", ncolumns=10, append=TRUE); write(y\$lambda, file=\"../models.txt\", ncolumns=10, append=TRUE, sep=\",\"); write(y\$mu, file=\"../models.txt\", ncolumns=10, append=TRUE, sep=\",\"); write(y\$sigma, file=\"../models.txt\", ncolumns=10, append=TRUE, sep=\",\");
 		"
 	fi
 
@@ -46,7 +46,7 @@ do
 		# R script: CLI R ignores other lines if line is separated... hard to read, but no other ways.
 		# this extracts model from given latency data, and stores model's data into ../models.txt.
 		R -e "
-			library(\"mixtools\"); x<-scan(\"../write_${bs[$i_bs]}_${ratios[$i_ratio]}.txt\"); y<-tryCatch({normalmixEM(x,k=6,maxit=1500)},error=function(cond){return(tryCatch({normalMixEM(x,k=5,maxit=1500)},error=function(cond){return(tryCatch({normalMixEM(x,k=4,maxit=1500)},error=function(cond){return(tryCatch({normalMixEM(x,k=3,maxit=1500)},error=function(cond){return(tryCatch({normalMixEM(x,k=2,maxit=1500)},error=function(cond){return(tryCatch({normalMixEM(x,k=1,maxit=1500)},error=function(cond){return(print(\"no match for normalMixEM!\"))}))}))}))}))}))}); write(\"write ${bs[$i_bs]} ${ratios[$i_ratio]}\", file=\"../models.txt\", ncolumns=10, append=TRUE); write(y\$lambda, file=\"../models.txt\", ncolumns=10, append=TRUE, sep=\",\"); write(y\$mu, file=\"../models.txt\", ncolumns=10, append=TRUE, sep=\",\"); write(y\$sigma, file=\"../models.txt\", ncolumns=10, append=TRUE, sep=\",\");
+			library(\"mixtools\"); x<-scan(\"../write_${bs[$i_bs]}_${ratios[$i_ratio]}.txt\"); y<-tryCatch({normalmixEM(x,k=7,maxit=6000)},error=function(cond){print(\"no match for K=7, trying K=6\");return(tryCatch({normalmixEM(x,k=6,maxit=6000)},error=function(cond){print(\"no match for K=6, trying K=5\");return(tryCatch({normalmixEM(x,k=5,maxit=6000)},error=function(cond){print(\"no match for K=5, trying K=4\");return(tryCatch({normalmixEM(x,k=4,maxit=6000)},error=function(cond){print(\"no match for K=4, trying K=3\");return(tryCatch({normalmixEM(x,k=3,maxit=6000)},error=function(cond){print(\"no match for K=3, trying K=2\");return(tryCatch({normalmixEM(x,k=2,maxit=6000)},error=function(cond){print(\"no match for K=2, trying K=1\");return(tryCatch({normalmixEM(x,k=1,maxit=6000)},error=function(cond){print(\"no match for normalmixEM\")}))}))}))}))}))}))}); write(\"write ${ratios[$i_ratio]} ${bs[$i_bs]}\", file=\"../models.txt\", ncolumns=10, append=TRUE); write(y\$lambda, file=\"../models.txt\", ncolumns=10, append=TRUE, sep=\",\"); write(y\$mu, file=\"../models.txt\", ncolumns=10, append=TRUE, sep=\",\"); write(y\$sigma, file=\"../models.txt\", ncolumns=10, append=TRUE, sep=\",\");
 		"
 	fi
 
